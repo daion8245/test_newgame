@@ -64,13 +64,6 @@ namespace newgame
                 // 키 입력 받기
                 ConsoleKeyInfo key = Console.ReadKey(true);
                 
-                Player? activePlayerForCleanup = GameManager.Instance.Player;
-                if (activePlayerForCleanup != null && !activePlayerForCleanup.IsDead)
-                {
-                    RoomDelete();
-                }
-                
-                GameManager.Instance.UpdateDungeonMap(floor, map);
                 // 이동 처리
                 int newX = player.X, newY = player.Y;
 
@@ -92,6 +85,14 @@ namespace newgame
                 {
                     return;
                 }
+
+                Player? activePlayerForCleanup = GameManager.Instance.Player;
+                if (activePlayerForCleanup != null && !activePlayerForCleanup.IsDead)
+                {
+                    RoomDelete();
+                }
+
+                GameManager.Instance.UpdateDungeonMap(floor, map);
             }
 
         }

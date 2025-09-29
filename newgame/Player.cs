@@ -123,7 +123,8 @@ namespace newgame
         #region 패배 후 복구
         public void RespawnAtTavern()
         {
-            MyStatus.Hp = Math.Max(1, MyStatus.MaxHp / 2);
+            int restoredHp = (int)Math.Max(1, Math.Ceiling(MyStatus.MaxHp * 0.1));
+            MyStatus.Hp = restoredHp;
             MyStatus.Mp = MyStatus.MaxMp;
             IsDead = false;
 
